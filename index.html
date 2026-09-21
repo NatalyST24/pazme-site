@@ -4,51 +4,65 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f8f9f4">
-  <meta name="description" content="PAZME. Мир складывается из людей. Первые приглашения к запуску сервиса для участников и бизнеса.">
+  <meta name="description" content="PAZME: QR-наклейка на ваших вещах, возможность получать вознаграждение за результат и новый способ привлечения клиентов для бизнеса.">
   <title>PAZME · Мир складывается из людей</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/style.css">
-  <script src="/assets/app.js" defer></script>
+  <link rel="stylesheet" href="/assets/style.css?v=4">
+  <script src="/assets/app.js?v=4" defer></script>
 </head>
 <body>
   <div class="page">
     <header class="header" aria-label="PAZME">
-      <a class="brand" href="/" aria-label="PAZME, главная"><img src="/favicon.svg" alt="" width="36" height="36"><span>PAZME</span></a>
+      <a class="brand" href="/" aria-label="PAZME, главная"><img class="brand-wordmark" src="/assets/wordmark.png" alt="PAZME" width="220" height="48"></a>
       <span class="header-note">Люди. Идеи. Возможности.</span>
     </header>
     <main class="main">
       <section class="intro" aria-labelledby="heading">
         <div class="intro-copy">
-          <p class="eyebrow">Рады знакомству</p>
-          <h1 id="heading">Мир складывается<br>из людей.</h1>
-          <p>Мы создаём сервис, который соединяет людей и компании через небольшие знаки на привычных вещах.</p>
-          <p>Участники смогут получать дополнительный доход, а компании находить новых клиентов.</p>
-          <p class="launch">Планируем запустить PAZME через <strong>1–2 недели</strong>. Сервис появится здесь, на <strong>pazme.ru</strong>. Пришлём приглашение и подробности на ваш телефон.</p>
+          <p class="eyebrow">Вы нашли PAZME</p>
+          <h1 id="heading">Наклей QR.<br>Получай вознаграждение.</h1>
+          <p class="intro-lead">Мы создали PAZME: заметную наклейку с QR. Люди сканируют знак и открывают предложения брендов.</p>
+          <div class="intro-benefits">
+            <p><strong>Для участника</strong> Носи знак, живи как обычно и получай вознаграждение за подтверждённые результаты.</p>
+            <p><strong>Для бизнеса</strong> Показывай своё предложение новым людям и находи клиентов.</p>
+          </div>
+          <p class="launch">Первый запуск через <strong>1–2 недели</strong>. Оставь телефон или почту — пришлём приглашение и подробности.</p>
         </div>
         <div class="image-wrap"><img class="sticker" src="/assets/sticker.webp" alt="Наклейка PAZME в форме пазла с QR-кодом" width="451" height="560"></div>
       </section>
       <section class="form-card" aria-labelledby="form-title">
-        <div class="form-head"><div class="section-symbol" aria-hidden="true">✳</div><div><h2 id="form-title">Интересно стать частью PAZME?</h2><p>Выберите, что вам ближе. Это займёт несколько секунд.</p></div></div>
+        <div class="form-head"><div class="section-symbol" aria-hidden="true">✳</div><div><h2 id="form-title">Хочешь присоединиться?</h2><p>Выбери свою роль и удобный способ связи.</p></div></div>
         <fieldset class="choice-fieldset" id="interest" aria-label="Интерес к участию">
           <legend class="visually-hidden">Ваш ответ</legend>
-          <label class="choice" for="interest-yes"><input id="interest-yes" type="radio" name="interest" value="yes"><span>Да, хочу присоединиться</span></label>
+          <label class="choice" for="interest-yes"><input id="interest-yes" type="radio" name="interest" value="yes"><span>Да, хочу узнать о запуске</span></label>
           <label class="choice" for="interest-no"><input id="interest-no" type="radio" name="interest" value="no"><span>Пока нет</span></label>
         </fieldset>
         <div class="conditional" id="declined" hidden role="status">Спасибо, что заглянули 💚 Будем рады новой встрече здесь, на PAZME.</div>
         <form class="conditional" id="signup" hidden novalidate>
           <fieldset class="roles">
             <legend>Как вы хотите участвовать?</legend>
-            <label class="role" for="role-participant"><input type="radio" name="role" id="role-participant" value="participant"><span><strong>Хочу стать участником</strong><small>Размещать свой знак и получать вознаграждение</small></span></label>
-            <label class="role" for="role-business"><input type="radio" name="role" id="role-business" value="business"><span><strong>Представляю бизнес</strong><small>Привлекать новых клиентов через PAZME</small></span></label>
+            <label class="role" for="role-participant"><input type="radio" name="role" id="role-participant" value="participant"><span><strong>Хочу зарабатывать</strong><small>Размещать знак и получать вознаграждение за результат</small></span></label>
+            <label class="role" for="role-business"><input type="radio" name="role" id="role-business" value="business"><span><strong>Представляю бизнес</strong><small>Знакомить новых людей со своим предложением</small></span></label>
           </fieldset>
-          <label class="phone-label" for="phone">Телефон для приглашения</label>
-          <input class="phone" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" maxlength="24" required>
-          <label class="consent-line" for="consent"><input type="checkbox" id="consent" name="consent" required><span>Согласен(на) на обработку номера для приглашения в PAZME. <a href="/consent/" target="_blank" rel="noopener">Согласие</a> и <a href="/privacy/" target="_blank" rel="noopener">политика</a>.</span></label>
+          <fieldset class="contact-methods">
+            <legend>Как удобнее получить приглашение?</legend>
+            <label class="contact-method" for="contact-phone"><input type="radio" name="contact_type" id="contact-phone" value="phone" checked><span>Телефон</span></label>
+            <label class="contact-method" for="contact-email"><input type="radio" name="contact_type" id="contact-email" value="email"><span>Почта</span></label>
+          </fieldset>
+          <div id="contact-phone-field">
+            <label class="phone-label" for="phone">Номер телефона</label>
+            <input class="phone" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" maxlength="24" required>
+          </div>
+          <div id="contact-email-field" hidden>
+            <label class="phone-label" for="email">Электронная почта</label>
+            <input class="phone" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.ru" maxlength="254" disabled>
+          </div>
+          <label class="consent-line" for="consent"><input type="checkbox" id="consent" name="consent" required><span>Согласен(на) на обработку выбранных контактных данных для приглашения в PAZME. <a href="/consent/" target="_blank" rel="noopener">Согласие</a> и <a href="/privacy/" target="_blank" rel="noopener">политика</a>.</span></label>
           <div class="visually-hidden" aria-hidden="true"><label>Сайт<input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label></div>
           <p class="form-error" id="form-error" role="alert" hidden></p>
           <button class="submit" id="submit" type="submit">Получить приглашение <span aria-hidden="true">↗</span></button>
         </form>
-        <div class="success" id="success" hidden role="status"><span class="success-icon" aria-hidden="true">♥</span><h3>Спасибо! Рады, что вы с нами в самом начале.</h3><p>Скоро пришлём подробности о PAZME на ваш телефон 💚</p></div>
+        <div class="success" id="success" hidden role="status"><span class="success-icon" aria-hidden="true">♥</span><h3>Спасибо! Рады, что вы с нами в самом начале.</h3><p>Пришлём подробности о PAZME выбранным способом 💚</p></div>
       </section>
     </main>
     <footer class="footer"><span>PAZME · Мир складывается из людей</span><a href="/privacy/">Обработка данных</a><a href="mailto:n.law-2024@mail.ru">Связаться с нами</a></footer>
