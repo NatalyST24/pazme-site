@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily PAZME contact retention cleanup
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target

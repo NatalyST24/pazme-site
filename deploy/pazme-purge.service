@@ -1,0 +1,15 @@
+[Unit]
+Description=PAZME delete expired contact applications
+
+[Service]
+Type=oneshot
+User=pazme
+Group=pazme
+WorkingDirectory=/opt/pazme
+Environment=PAZME_DB=/var/lib/pazme/pazme.sqlite3
+ExecStart=/opt/pazme/.venv/bin/python /opt/pazme/manage.py purge-expired
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/var/lib/pazme
