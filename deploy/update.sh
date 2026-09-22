@@ -39,7 +39,7 @@ fi
 for f in app.py manage.py index.html participant.html business.html privacy.html consent.html favicon.svg robots.txt requirements.txt; do
   install -m 0644 "$SOURCE_DIR/$f" "/opt/pazme/$f"
 done
-for f in style.css app.js profile.js sticker.webp qr-site.png smile-partner.webp smile-business.webp wordmark.png; do
+for f in style.css app.js profile.js sticker.webp qr-site.png smile-partner.webp smile-business.webp wordmark.png hero-city.webp; do
   install -m 0644 "$SOURCE_DIR/assets/$f" "/opt/pazme/assets/$f"
 done
 /opt/pazme/.venv/bin/python -m py_compile /opt/pazme/app.py /opt/pazme/manage.py
@@ -47,9 +47,14 @@ done
 (cd /opt/pazme && sudo -u pazme env PAZME_DB=/var/lib/pazme/pazme.sqlite3 /opt/pazme/.venv/bin/python -c 'from app import connection; connection().close()') || { echo 'Migration failed, use the backup; stop.'; exit 1; }
 systemctl restart pazme
 systemctl is-active --quiet pazme || { echo 'Site did not start; use the backup and send log output.'; exit 1; }
-code=$(curl -sS -o /dev/null -w '%{http_code}' http://127.0.0.1:8765/qr/ || true)
-[ "$code" = 200 ] || { echo "Unexpected HTTP code: $code; stop."; exit 1; }
-code=$(curl -sS -o /dev/null -w '%{http_code}' http://127.0.0.1:8765/business/ || true)
+# Gunicorn may need a few seconds to bind after restart; do not report false failure.
+for attempt in $(seq 1 20); do
+    code=$(curl -s -o /dev/null -w '%{http_code}' --connect-timeout 2 http://127.0.0.1:8765/qr/ || true)
+    [ "$code" = 200 ] && break
+    sleep 1
+done
+[ "$code" = 200 ] || { echo "Main page HTTP code: $code; stop and check: journalctl -u pazme -n 40 --no-pager"; exit 1; }
+code=$(curl -s -o /dev/null -w '%{http_code}' --connect-timeout 2 http://127.0.0.1:8765/business/ || true)
 [ "$code" = 200 ] || { echo "Business page HTTP code: $code; stop."; exit 1; }
 echo 'PAZME updated. Database and analytics preserved. HTTPS and Nginx unchanged.'
 echo 'Admin: https://pazme.ru/admin/ (credentials: /root/PAZME_ADMIN_PASSWORD.txt)'

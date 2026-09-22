@@ -143,7 +143,7 @@ def admin_page(db):
 def application(env, start):
     method=env.get('REQUEST_METHOD','GET')
     path=env.get('PATH_INFO','/')
-    static={'/':'index.html','/qr/':'index.html','/participant/':'participant.html','/business/':'business.html','/privacy/':'privacy.html','/consent/':'consent.html','/assets/style.css':'assets/style.css','/assets/app.js':'assets/app.js','/assets/profile.js':'assets/profile.js','/assets/sticker.webp':'assets/sticker.webp','/assets/qr-site.png':'assets/qr-site.png','/assets/wordmark.png':'assets/wordmark.png','/assets/smile-partner.webp':'assets/smile-partner.webp','/assets/smile-business.webp':'assets/smile-business.webp','/favicon.svg':'favicon.svg','/robots.txt':'robots.txt'}
+    static={'/':'index.html','/qr/':'index.html','/participant/':'participant.html','/business/':'business.html','/privacy/':'privacy.html','/consent/':'consent.html','/assets/style.css':'assets/style.css','/assets/app.js':'assets/app.js','/assets/profile.js':'assets/profile.js','/assets/sticker.webp':'assets/sticker.webp','/assets/qr-site.png':'assets/qr-site.png','/assets/wordmark.png':'assets/wordmark.png','/assets/smile-partner.webp':'assets/smile-partner.webp','/assets/smile-business.webp':'assets/smile-business.webp','/assets/hero-city.webp':'assets/hero-city.webp','/favicon.svg':'favicon.svg','/robots.txt':'robots.txt'}
     if method=='GET' and path in static:
         file=ROOT/static[path]
         return respond(start,200,file.read_bytes(),MIME.get(file.suffix,'application/octet-stream'))
