@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="PAZME: реклама через QR-наклейки на вещах. Сейчас проверяем интерес и собираем заявки на запуск.">
+  <title>PAZME · Реклама через QR-наклейки</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css?v=5">
+  <script src="/assets/app.js?v=6" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header" aria-label="PAZME">
+      <a class="brand" href="/" aria-label="PAZME, главная"><img class="brand-wordmark" src="/assets/wordmark.png" alt="PAZME" width="220" height="48"></a>
+      <span class="header-note">Люди. Идеи. Возможности.</span>
+    </header>
+    <main class="main">
+      <section class="intro" aria-labelledby="heading">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Сейчас проверяем интерес к PAZME</p>
+          <h1 id="heading">Наклей QR.<br><span class="hero-green">Получай</span><br>вознаграждение.</h1>
+          <p class="intro-lead">PAZME — реклама через QR-наклейки. Ты носишь знак на своей вещи. Люди сканируют его и видят предложения компаний. За покупку или запись через твой QR компания платит, а ты получаешь часть.</p>
+          <div class="intro-benefits">
+            <p><span class="benefit-icon" aria-hidden="true">↗</span><strong>Для участника</strong><span>Свой QR на сумке или другой вещи. Живи как обычно.</span></p>
+            <p><span class="benefit-icon" aria-hidden="true">✦</span><strong>Для бизнеса</strong><span>Размести своё предложение и привлекай клиентов.</span></p>
+          </div>
+          <p class="launch"><span class="launch-dot" aria-hidden="true"></span> <strong>Сейчас мы проверяем интерес к такому способу рекламы.</strong> Предложения компаний появятся после запуска. Планируем старт через 1–2 недели — оставь контакт, пришлём приглашение и условия.</p>
+        </div>
+        <div class="hero-visual">
+          <img class="hero-city-photo" src="/assets/hero-city.webp" alt="Улыбающаяся девушка со знаком PAZME на сумке" width="455" height="915" fetchpriority="high">
+          <div class="hero-photo-shadow" aria-hidden="true"></div>
+          <span class="hero-photo-caption">ЛЮДИ.<br>ИДЕИ.<br>ВОЗМОЖНОСТИ.</span>
+          <a class="hero-scan" href="/qr/" aria-label="Открыть PAZME по QR-знаку">
+            <img src="/assets/qr-site.png" alt="Рабочий QR-код PAZME" width="88" height="88">
+            <span>Сейчас здесь запись<br>на запуск <b>↗</b></span>
+          </a>
+        </div>
+      </section>
+      <section class="form-card" aria-labelledby="form-title">
+        <div class="form-head"><div class="section-symbol" aria-hidden="true">✳</div><div><h2 id="form-title">Хочешь участвовать?</h2><p>Выбери роль и оставь телефон или почту для приглашения.</p></div></div>
+        <form class="conditional" id="signup" novalidate>
+          <fieldset class="roles">
+            <legend>Как хочешь участвовать?</legend>
+            <label class="role" for="role-participant"><input type="radio" name="role" id="role-participant" value="participant"><span><strong>Хочу зарабатывать</strong><small>Размещать свой QR и получать вознаграждение за результат</small></span></label>
+            <label class="role" for="role-business"><input type="radio" name="role" id="role-business" value="business"><span><strong>Представляю бизнес</strong><small>Привлекать новых клиентов через QR участников</small></span></label>
+          </fieldset>
+          <fieldset class="contact-methods">
+            <legend>Как удобнее получить приглашение?</legend>
+            <label class="contact-method" for="contact-phone"><input type="radio" name="contact_type" id="contact-phone" value="phone" checked><span>Телефон</span></label>
+            <label class="contact-method" for="contact-email"><input type="radio" name="contact_type" id="contact-email" value="email"><span>Почта</span></label>
+          </fieldset>
+          <div id="contact-phone-field">
+            <label class="phone-label" for="phone">Номер телефона</label>
+            <input class="phone" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" maxlength="24" required>
+          </div>
+          <div id="contact-email-field" hidden>
+            <label class="phone-label" for="email">Электронная почта</label>
+            <input class="phone" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.ru" maxlength="254" disabled>
+          </div>
+          <label class="consent-line" for="consent"><input type="checkbox" id="consent" name="consent" required><span>Согласен(на) на обработку выбранных контактных данных для приглашения в PAZME. <a href="/consent/" target="_blank" rel="noopener">Согласие</a> и <a href="/privacy/" target="_blank" rel="noopener">политика</a>.</span></label>
+          <div class="visually-hidden" aria-hidden="true"><label>Сайт<input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button class="submit" id="submit" type="submit">Получить приглашение <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="success" id="success" hidden role="status"><span class="success-icon" aria-hidden="true">♥</span><h3>Спасибо! Рады, что вы с нами в самом начале.</h3><p>Пришлём подробности о PAZME выбранным способом 💚</p></div>
+      </section>
+    </main>
+    <footer class="footer"><span>PAZME · Мир складывается из людей</span><a href="/privacy/">Обработка данных</a><a href="mailto:n.law-2024@mail.ru">Связаться с нами</a></footer>
+  </div>
+</body>
+</html>
